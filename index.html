@@ -1,0 +1,61 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="content-language" content="lv" />
+<title>Comments</title>
+<link rel="stylesheet" href="style.css" />
+
+<nav class="top_navigation">
+  <a href="./">comments</a>
+  <a href="./image_upload.html">image upload</a>
+</nav>
+
+<div class="background_container">
+  <img src="" alt="" class="template" />
+</div>
+
+<div class="content_container">
+  <form action="api.php?object=comment&action=add" id="comments_form">
+    <input type="text" name="author" placeholder="Name" required />
+    <textarea
+      name="message"
+      rows="10"
+      placeholder="Comment Message"
+      required
+    ></textarea>
+    <button type="submit">comment</button>
+  </form>
+
+  <div class="comments">
+    <div class="comments__entry template">
+      <div class="comment_first_block">
+        <p class="message"></p>
+        <div>
+          <a href="#" class="delete">delete</a>
+          <a href="#" class="edit">edit</a>
+        </div>
+      </div>
+      <strong class="author"></strong>
+    </div>
+  </div>
+</div>
+
+<div class="popup">
+  <form action="api.php?object=comment&action=update" id="comments_update_form">
+    <input type="hidden" name="id" />
+    <input type="text" name="author" placeholder="Name" required />
+    <textarea
+      name="message"
+      rows="10"
+      placeholder="Comment Message"
+      required
+    ></textarea>
+    <button type="submit">save</button>
+  </form>
+</div>
+
+<script src="xhttp.js"></script>
+<script src="script.js"></script>

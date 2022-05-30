@@ -8,7 +8,7 @@ form.onsubmit = function(event) {
     });
 }
 
-xhttp.get('api.php?object=image&action=getAll', function (response) {
+xhttp.get('https://todo-it.000webhostapp.com/api.php?object=image&action=getAll', function (response) {
     for (let image of response.images) {
         displayImage(image.id);
     }
@@ -25,7 +25,7 @@ function displayImage(id) {
     button.onclick = deleteImage;
 
     const img = document.createElement('img');
-    const url = 'endpoint.php?name=png&id=' + id;
+    const url = 'https://todo-it.000webhostapp.com/endpoint.php?name=png&id=' + id;
     img.src = url
     img.width = 200;
 
@@ -39,7 +39,7 @@ function deleteImage (event) {
     const id = this.dataset.id;
     const data = new FormData();
     data.set('id', id);
-    xhttp.post('api.php?object=image&action=delete', data, function (response) {
+    xhttp.post('https://todo-it.000webhostapp.com/api.php?object=image&action=delete', data, function (response) {
         btn.parentNode.remove();
     });
 }

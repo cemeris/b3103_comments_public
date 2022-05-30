@@ -19,9 +19,9 @@ const image_template = background_container.querySelector('.template');
 //     }
 // });
 
-xhttp.get('api.php?object=batch&action=getAll', function (response) {
+xhttp.get('https://todo-it.000webhostapp.com/api.php?object=batch&action=getAll', function (response) {
     for (let image of response.images) {
-        addBackgroundImage('endpoint.php?name=png&id=' + image.id);
+        addBackgroundImage('https://todo-it.000webhostapp.com/endpoint.php?name=png&id=' + image.id);
     }
     for (let comment of response.comments) {
         addComment(comment.id, comment.author, comment.message);
@@ -62,7 +62,7 @@ function addComment(id, author, message) {
         const data = new FormData();
         data.set('id', id);
 
-        xhttp.post('api.php?object=comment&action=delete', data, function (response) {
+        xhttp.post('https://todo-it.000webhostapp.com/api.php?object=comment&action=delete', data, function (response) {
             new_comment.remove();
         });
     };
@@ -71,7 +71,7 @@ function addComment(id, author, message) {
         const data = new FormData();
         data.set('id', id);
 
-        xhttp.post('api.php?object=comment&action=get', data, function (response) {
+        xhttp.post('https://todo-it.000webhostapp.com/api.php?object=comment&action=get', data, function (response) {
             popup.style.display = 'flex';
             form_update.querySelector('[name="id"]').value = response.comment.id;
             form_update.querySelector('[name="author"]').value = response.comment.author;
